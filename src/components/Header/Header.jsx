@@ -5,7 +5,7 @@ import styles from './Header.module.css';
 const Header = () => {
     return (
 <header className={styles.header}>
- <h1 className={styles.title}>Breaking news</h1>
+ <h1 className={styles.title}>BREAKING NEWS</h1>
  <p className={styles.date}>{formatDate(new Date())}</p>
 </header>
     )
