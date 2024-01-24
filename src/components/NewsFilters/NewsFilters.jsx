@@ -1,4 +1,4 @@
-
+import Slider from '../../components/Slider/Slider';
 import { getCategories } from '../../api/apiNews';
 import { useFetch } from '../../helpers/hooks/useFetch';
 import Categories from '../Categories/Categories';
@@ -11,11 +11,15 @@ const NewsFilters = ({ filters, changeFilter }) => {
 
     return (
 <div className={styles.filters}>
-    {dataCategies ? <Categories 
-        categories={dataCategies.categories} 
-        selectedCategorie={filters.category}
-        setSelectedCategorie={(category) => changeFilter('category', category)}
-        /> : null}
+    {dataCategies ? (
+   <Slider>
+        <Categories 
+            categories={dataCategies.categories} 
+            selectedCategorie={filters.category}
+            setSelectedCategorie={(category) => changeFilter('category', category)}
+        />
+   </Slider>
+    )  : null}
     <Search
         keywords={filters.keywords} 
         setKeyWords={(keywords) => changeFilter('keywords', keywords)}/>
