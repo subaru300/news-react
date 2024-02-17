@@ -5,9 +5,9 @@ import { useFilters } from '../../helpers/hooks/useFilters';
 import NewsFilters from '../NewsFilters/NewsFilters';
 import NewsList from '../NewsList/NewsList';
 import { PAGE_SIZE, TOTAL_PAGES } from '../constants/constants';
-import PaginationWrapper from '../../components/PaginationWrapper/PaginationWrapper';
+import PaginationWrapper from '../PaginationWrapper/PaginationWrapper';
 import styles from './NewsByFilters.module.css';
-
+import { NewsApiResponse, ParamsType } from '../../interfaces/index';
 
 const NewsByFilters = () => {
 
@@ -20,11 +20,10 @@ const NewsByFilters = () => {
 
     const debouncedKeywords = useDebounce(filters.keywords, 1500)
 
-    const {data, isLoading} = useFetch(getNews, {
+    const {data, isLoading} = useFetch<ParamsType, NewsApiResponse>(getNews, {
         ...filters,
         keywords: debouncedKeywords,
     });
-
 
     const onNextPageHandler = () => {
         if(filters.page_number < TOTAL_PAGES) {
@@ -38,7 +37,7 @@ const NewsByFilters = () => {
         }
     };
 
-    const onClickPageHandler = (pageNumber) => {
+    const onClickPageHandler = (pageNumber: number) => {
         changeFilter('page_number', pageNumber);
     };
 
