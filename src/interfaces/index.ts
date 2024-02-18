@@ -27,7 +27,7 @@ export interface CategoriesApiResponse {
 
 export interface IPaginationProps {
     totalPages: number;
-    currentPage: number ; 
+    currentPage: number;
     onNextPageHandler: () => void; 
     onPrevPageHandler: () => void;
     onClickPageHandler: (page: number) => void;
