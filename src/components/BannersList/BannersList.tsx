@@ -7,7 +7,6 @@ interface Props {
     banners?: INews[] | null;
 }
 
-
 const BannersList = ({ banners }: Props) => {
     
     return (
