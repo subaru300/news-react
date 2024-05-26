@@ -1,5 +1,5 @@
 import { formatTimeAgo } from '@/shared/helpers/formatTimeAgo';
-import { INews } from '../../model/types';
+import { INews } from '@/shared/interfaces';
 import styles from './NewsItem.module.css';
 
 interface Props {
